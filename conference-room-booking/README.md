@@ -23,34 +23,61 @@ A modern React-based conference room booking application for your company. This 
 ## Demo Credentials
 
 For testing the owner functionality:
-- **Username**: `owner`
-- **Password**: `password`
+- **Username**: `SrashtaSoft`
+- **Password**: `conf@123`
 
 ## Installation and Setup
 
 ### Prerequisites
 - Node.js (version 14 or higher)
 - npm or yarn
+- Docker (for containerized deployment)
 
 ### Installation Steps
+
+#### Option 1: Development Setup
 
 1. **Clone or navigate to the project directory**
    ```bash
    cd conference-room-booking
    ```
 
-2. **Install dependencies**
+2. **Install frontend dependencies**
    ```bash
    npm install
    ```
 
-3. **Start the development server**
+3. **Install backend dependencies**
+   ```bash
+   cd server
+   npm install
+   cd ..
+   ```
+
+4. **Start the backend server**
+   ```bash
+   cd server
+   npm start
+   ```
+
+5. **Start the frontend development server**
    ```bash
    npm start
    ```
 
-4. **Open your browser**
+6. **Open your browser**
    Navigate to `http://localhost:3000`
+
+#### Option 2: Docker Setup (Recommended for Production)
+
+1. **Build and run with Docker Compose**
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Access the application**
+   - Frontend: `http://localhost:3002`
+   - Backend API: `http://localhost:5000`
 
 ## Usage
 
@@ -64,8 +91,8 @@ When you first visit the application, you'll see the public schedule view showin
 ### Owner Login
 1. Click the "Owner Login" button
 2. Enter the demo credentials:
-   - Username: `owner`
-   - Password: `password`
+   - Username: `SrashtaSoft`
+   - Password: `conf@123`
 3. You'll be redirected to the owner dashboard
 
 ### Creating Bookings (Owner Only)
@@ -92,6 +119,8 @@ When you first visit the application, you'll see the public schedule view showin
 
 ### Built With
 - **React 18** with TypeScript
+- **Node.js/Express** backend API
+- **JWT Authentication** for secure login
 - **React Context API** for state management
 - **date-fns** for date manipulation
 - **CSS3** with modern styling and responsive design
@@ -134,23 +163,28 @@ src/
 - Custom color scheme can be modified in the CSS variables
 
 ### Authentication
-- Currently uses hardcoded credentials for demo purposes
-- Can be extended to integrate with backend authentication systems
+- JWT-based authentication with secure token storage
+- Backend API integration for persistent data
+- Can be extended to integrate with external authentication systems
 
 ## Future Enhancements
 
-- Backend integration for persistent data storage
-- User management system
+- Database integration (PostgreSQL, MongoDB)
+- User management system with roles
 - Email notifications for bookings
-- Calendar integration
+- Calendar integration (Google Calendar, Outlook)
 - Recurring booking support
 - Room availability checking
 - Booking approval workflow
+- Real-time updates with WebSocket
+- Mobile app development
 
 ## Support
 
 For any issues or questions, please refer to the code comments or create an issue in the project repository.
 
 ## License
+
+This project is created for internal company use. Please ensure compliance with your organization's policies.
 
 This project is created for internal company use. Please ensure compliance with your organization's policies.

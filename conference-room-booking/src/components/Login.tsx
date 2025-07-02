@@ -10,16 +10,19 @@ const Login: React.FC<LoginProps> = ({ onBackToSchedule }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const { login } = useAuth();
+  const { login, loading } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     
-    if (login(username, password)) {
-      // Login successful
-    } else {
-      setError('Invalid credentials. Use username: owner, password: password');
+    try {
+      const success = await login(username, password);
+      if (!success) {
+        setError('Invalid credentials. Use username: SrashtaSoft, password: conf@123');
+      }
+    } catch (error) {
+      setError('Login failed. Please check your credentials and try again.');
     }
   };
 
@@ -56,15 +59,15 @@ const Login: React.FC<LoginProps> = ({ onBackToSchedule }) => {
           
           {error && <div className="error-message">{error}</div>}
           
-          <button type="submit" className="login-button">
-            Login
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
         
         <div className="login-info">
           <p><strong>Demo Credentials:</strong></p>
-          <p>Username: owner</p>
-          <p>Password: password</p>
+          <p>Username: SrashtaSoft</p>
+          <p>Password: conf@123</p>
         </div>
         
         {onBackToSchedule && (

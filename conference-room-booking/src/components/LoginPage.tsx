@@ -10,14 +10,15 @@ const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (login(username, password)) {
+    const success = await login(username, password);
+    if (success) {
       // Redirect to dashboard (root)
       navigate('/');
     } else {
-      setError('Invalid credentials. Use username: owner, password: password');
+      setError('Invalid credentials. Please try again.');
     }
   };
 

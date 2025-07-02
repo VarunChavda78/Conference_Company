@@ -60,7 +60,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ onBookingSuccess }) => {
         return;
       }
 
-      addBooking({
+      await addBooking({
         ...formData,
         booker: formData.booker || user?.username || 'Unknown',
         presenter: formData.presenter || formData.booker || user?.username || 'Unknown'
@@ -146,7 +146,6 @@ const BookingForm: React.FC<BookingFormProps> = ({ onBookingSuccess }) => {
               value={formData.numberOfPeople}
               onChange={handleInputChange}
               min="1"
-              max="50"
               required
             />
           </div>

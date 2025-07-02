@@ -1,11 +1,13 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { User } from '../types';
+import { apiService } from '../services/api';
 
 interface AuthContextType {
   user: User | null;
-  login: (username: string, password: string) => boolean;
+  login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
   isAuthenticated: boolean;
+  loading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -36,6 +38,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
     return null;
   });
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -45,21 +48,22 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }, [user]);
 
-  const login = (username: string, password: string): boolean => {
-    // For now, only allow owner login with hardcoded credentials
-    if (username === 'SrashtaSoft' && password === 'conf@123') {
-      const ownerUser: User = {
-        id: '1',
-        username: 'Owner',
-        isOwner: true
-      };
-      setUser(ownerUser);
+  const login = async (username: string, password: string): Promise<boolean> => {
+    setLoading(true);
+    try {
+      const response = await apiService.login(username, password);
+      setUser(response.user);
       return true;
+    } catch (error) {
+      console.error('Login error:', error);
+      return false;
+    } finally {
+      setLoading(false);
     }
-    return false;
   };
 
   const logout = () => {
+    apiService.logout();
     setUser(null);
   };
 
@@ -67,7 +71,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     user,
     login,
     logout,
-    isAuthenticated: !!user
+    isAuthenticated: !!user,
+    loading
   };
 
   return (
