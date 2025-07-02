@@ -175,8 +175,6 @@ const BookingForm: React.FC<BookingFormProps> = ({ onBookingSuccess }) => {
               value={formData.startTime}
               onChange={handleInputChange}
               required
-              min="09:00"
-              max="19:00"
             />
           </div>
           
@@ -189,8 +187,6 @@ const BookingForm: React.FC<BookingFormProps> = ({ onBookingSuccess }) => {
               value={formData.endTime}
               onChange={handleInputChange}
               required
-              min="09:00"
-              max="19:00"
             />
           </div>
         </div>

@@ -201,7 +201,8 @@
   background: #888888;
   border-radius: 6px;
   padding: 6px 10px;
-  color: white;
+  color: white !important;
+  font-weight: bold;
   text-align: center;
 }
 
@@ -219,13 +220,14 @@
 }
 
 .booking-title {
-  font-weight: 600;
+  font-weight: bold;
   font-size: 11px;
   margin-bottom: 3px;
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: white !important;
 }
 
 .booking-details {
@@ -233,15 +235,18 @@
   flex-direction: column;
   gap: 1px;
   font-size: 10px;
+  font-weight: bold;
   opacity: 0.9;
+  color: white !important;
 }
 
 .booking-type {
   font-size: 9px;
   opacity: 0.8;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white !important;
 }
 
 .schedule-legend {

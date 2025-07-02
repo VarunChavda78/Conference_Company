@@ -101,8 +101,9 @@
   background: #667eea;
   border-radius: 6px;
   padding: 8px 12px;
-  color: white;
+  color: white !important;
   font-size: 12px;
+  font-weight: bold;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -122,13 +123,14 @@
 }
 
 .booking-title {
-  font-weight: 600;
+  font-weight: bold;
   font-size: 13px;
   margin-bottom: 4px;
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: white !important;
 }
 
 .booking-details {
@@ -136,15 +138,18 @@
   flex-direction: column;
   gap: 2px;
   font-size: 11px;
+  font-weight: bold;
   opacity: 0.9;
+  color: white !important;
 }
 
 .booking-type {
   font-size: 10px;
   opacity: 0.8;
-  font-weight: 500;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white !important;
 }
 
 .schedule-legend {
@@ -336,8 +341,9 @@
 .booking-item {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.10);
-  color: #fff;
+  color: white !important;
   font-size: 12px;
+  font-weight: bold;
   padding: 6px 8px;
   margin: 2px 0;
   display: flex;
@@ -355,26 +361,29 @@
 }
 
 .booking-title {
-  font-weight: 700;
+  font-weight: bold;
   font-size: 13px;
   margin-bottom: 2px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: white !important;
 }
 
 .booking-details {
   font-size: 11px;
-  color: #e0e0e0;
+  font-weight: bold;
+  color: white !important;
   margin-bottom: 2px;
 }
 
 .booking-type {
   font-size: 10px;
   opacity: 0.85;
-  font-weight: 600;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  color: white !important;
 }
 
 @media (max-width: 1100px) {
